@@ -2,9 +2,9 @@ import React from "react";
 import { assets } from "../assets/assets";
 const Footer = () => {
   return (
-    <div className="bg-zinc-800 text-white px-20 pt-20 flex flex-col items-center mt-20">
-      <div className="content flex gap-[80px]">
-        <div className="left w-[45%] mr-20">
+    <div id="footer" className="overflow-hidden bg-zinc-800 text-white flex justify-center items-center md:px-20 pt-20 flex-col">
+      <div className="content px-10 md:px-0 flex items-center justify-center flex-col gap-[40px] md:flex-row md:gap-[80px] md:items-start">
+        <div className="left flex flex-col items-center justify-center text-center md:text-left md:items-start md:w-[45%] md:mr-20">
           <img src={assets.logo} alt="" />
           <p className="text-sm mt-4 leading-tight text-slate-300">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime
@@ -18,18 +18,18 @@ const Footer = () => {
             <img src={assets.linkedin_icon} alt="" />
           </div>
         </div>
-        <div className="center w-[30%] flex items-start flex-col">
+        <div className="center w-[30%] flex items-center md:items-start flex-col">
             <h1 className="text-xl font-bold mb-2 uppercase">Company</h1>
-            <ul className="text-sm flex flex-col items-start gap-1 text-slate-300">
+            <ul className="text-sm flex flex-col items-center md:items-start gap-1 text-slate-300">
                 <li>Home</li>
                 <li>About us</li>
                 <li>Delivery</li>
                 <li>Privacy policy</li>
             </ul>
         </div>
-        <div className="right w-[30%] flex items-start flex-col">
+        <div className="right md:w-[30%] flex items-center md:items-start flex-col">
             <h1 className="text-xl font-bold mb-2 uppercase">get in touch</h1>
-            <ul className="text-sm flex flex-col items-start gap-1 text-slate-300">
+            <ul className="text-sm flex flex-col items-center md:items-start gap-1 text-slate-300">
                 <li>+1-212-456-7890</li>
                 <li>contact@tomato.com</li>
             </ul>

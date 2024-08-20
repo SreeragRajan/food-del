@@ -37,7 +37,7 @@ const FoodItem = ({ id, name, description, price, image }) => {
       </div>
       <div className="info p-3">
         <div className="name-rating flex justify-between mb-2 items-center">
-          <p className="font-semibold">{name}</p>
+          <p className="font-semibold lg:text-sm xl:text-[16px]">{name}</p>
           <img src={assets.rating_starts} className="h-[15px]" alt="" />
         </div>
         <p className="desc leading-tight text-sm text-slate-700">

@@ -2,7 +2,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        'cart-frames':'1fr 1.5fr 1fr 1fr 1fr 0.5fr',
+      }
+    },
   },
   plugins: [],
 };
