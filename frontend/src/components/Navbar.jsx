@@ -1,12 +1,23 @@
 import React, { useContext, useState } from "react";
 import "../assets/assets.js";
 import { assets } from "../assets/assets.js";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../context/StoreContext.jsx";
 
 const Navbar = ({ setShowLogin }) => {
+
   const [active, setActive] = useState("home");
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
+  
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    useNavigate("/");
+  }
+
+
   return (
     <div>
       <nav className="h-[50px] w-full mt-4 flex justify-between items-center md:h-[100px] md:mt-0">
@@ -77,12 +88,24 @@ const Navbar = ({ setShowLogin }) => {
               <div className="dot absolute top-[-8%] right-[-20%] min-w-[10px] min-h-[10px] bg-red-500 rounded-full"></div>
             )}
           </div>
-          <button
+          {!token ? <button
             className="px-2 py-1 text-sm md:px-6 md:py-2 rounded-full border border-[#FF4C24] hover:bg-red-100 cursor-pointer"
             onClick={() => setShowLogin(true)}
-          >
-            sign up
-          </button>
+          >sign up
+          </button>: (<div className="relative group">
+              <img src={assets.profile_icon} className="cursor-pointer" alt="" />
+              <ul className="absolute hidden group-hover:block flex-col gap-2 right-0 z-[1] bg-zinc-200 border border-[#FF4C24] w-[120px] rounded">
+                <li className="flex gap-3 items-center p-1 cursor-pointer"><img src={assets.bag_icon} className="h-[28px]" alt="" />
+                <p className="text-sm hover:text-red-400">Orders</p>
+                </li>
+                <hr className="border-none h-[1px] bg-[#FF4C24]" />
+                <li onClick={logout} className="flex gap-3 items-center p-1 cursor-pointer"><img src={assets.logout_icon} className="h-[28px]" alt="" />
+                <p className="text-sm hover:text-red-400">Logout</p>
+                </li>
+              </ul>
+            </div>)
+          }
+        
         </div>
       </nav>
     </div>

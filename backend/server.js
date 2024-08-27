@@ -2,6 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import { connectDB } from './config/db.js';
 import foodRouter from "./routes/foodRouter.js";
+import userRouter from './routes/userRouter.js';
+import cartRouter from './routes/cartRouter.js';
+import 'dotenv/config'
 
 const app = express();
 const PORT = 4000;
@@ -16,7 +19,8 @@ connectDB();
 
 app.use('/api/food', foodRouter);
 app.use('/images', express.static("uploads"));
-
+app.use('/api/user', userRouter);
+app.use('/api/cart', cartRouter);
 
 app.get("/", (req, res) => {
     res.send("api working");
